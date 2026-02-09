@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --port 3000",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "vite dev --port 3000 --host",
+    "build": "vite build --host",
+    "preview": "vite preview --host",
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",

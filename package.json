@@ -1,0 +1,24 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"tsx server/src/index.ts\" \"npm run dev --prefix client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdeelAhmedHashmi/local-chatapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AdeelAhmedHashmi/local-chatapp/issues"
+  },
+  "homepage": "https://github.com/AdeelAhmedHashmi/local-chatapp#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

@@ -29,6 +29,16 @@ wss.on("connection", (ws: WebSocket) => {
     }),
   );
 
+  ws.send(
+    JSON.stringify({
+      type: "info",
+      user: {
+        name: userName,
+        id: userId,
+      },
+    }),
+  );
+
   broadcast(
     { type: "user:joined", user: { id: user.id, name: user.name } },
     ws,
