@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --bg-color: #1f2937;         /* slate-900 */
+  --primary-color: #02b838;    /* indigo-600 */
+  --secondary-color: #6b7280;  /* slate-500 */
+  --dark: #004e17;
+  --accent-color: #6366f1;     /* indigo-500 */
+  --chat-bg: #000000;           /* dark chat background */
+  --message-user: #46e55b;      /* sender name color */
+  --message-text: #d1d5db;      /* message text color */
+  --typing-color: #9ca3af;      /* typing indicator color */
+}
+
+/* ---------------- Tailwind Theme Overrides ---------------- */
+@layer base {
+  body {
+    @apply bg-[var(--bg-color)] text-[var(--message-text)];
+  }
+}
+
+@layer components {
+  .chat-header {
+    @apply px-4 py-3 flex justify-between items-center text-white bg-[var(--primary-color)];
+  }
+
+  .chat-input {
+    @apply flex-1 p-2 rounded-md bg-[var(--bg-color)] text-[var(--message-text)] text-xs focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)];
+  }
+
+  .chat-send-btn {
+    @apply px-4 py-2 rounded-md bg-[var(--primary-color)] text-white hover:bg-[var(--accent-color)];
+  }
+
+  .chat-message-user {
+    @apply font-semibold text-[var(--message-user)] text-sm;
+  }
+
+  .chat-typing {
+    @apply italic text-sm text-[var(--typing-color)];
+  }
+
+  .chat-container {
+    @apply flex flex-col h-screen w-full bg-[var(--chat-bg)];
+  }
+
+  .chat-messages {
+    @apply flex-1 overflow-y-auto p-4 space-y-2;
+  }
+
+  .chat-input-container {
+    @apply p-2 flex gap-2;
+  }
+}

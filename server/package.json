@@ -1,0 +1,20 @@
+{
+  "name": "chatapp",
+  "author": {
+    "name": "adeelahmedhashmi",
+    "email": "adeelahmedhashmi.aah@gmail.com",
+    "url": "https://adeelahmedhashmi.netlify.app"
+  },
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.2",
+    "@types/ws": "^8.18.1",
+    "typescript": "^5.9.3",
+    "ws": "^8.19.0"
+  }
+}
