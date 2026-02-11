@@ -1,23 +1,16 @@
 import { WebSocketServer, WebSocket } from "ws";
 import { randomUUID } from "node:crypto";
 
-interface User {
-  id: string;
-  name: string;
-  ws: WebSocket;
-  typing: boolean;
-}
-
-const users: User[] = [];
+const users = [];
 
 const wss = new WebSocketServer({ port: 8080 });
 
 console.log("Group chat server running on ws://localhost:8080");
 
-wss.on("connection", (ws: WebSocket) => {
+wss.on("connection", (ws) => {
   const userId = randomUUID();
   let userName = `User-${userId.slice(0, 4)}`;
-  const user: User = { id: userId, name: userName, ws, typing: false };
+  const user = { id: userId, name: userName, ws, typing: false };
   users.push(user);
 
   console.log(`${userName} connected`);
@@ -26,16 +19,6 @@ wss.on("connection", (ws: WebSocket) => {
     JSON.stringify({
       type: "users",
       users: users.map((u) => ({ id: u.id, name: u.name })),
-    }),
-  );
-
-  ws.send(
-    JSON.stringify({
-      type: "info",
-      user: {
-        name: userName,
-        id: userId,
-      },
     }),
   );
 
@@ -79,6 +62,15 @@ wss.on("connection", (ws: WebSocket) => {
             type: "user:rename",
             user: { id: user.id, oldName, newName: user.name },
           });
+          ws.send(
+            JSON.stringify({
+              type: "info",
+              user: {
+                name: userName,
+                id: userId,
+              },
+            }),
+          );
           break;
       }
     } catch (err) {
@@ -93,7 +85,7 @@ wss.on("connection", (ws: WebSocket) => {
   });
 });
 
-function broadcast(payload: any, excludeWs?: WebSocket) {
+function broadcast(payload, excludeWs) {
   const data = JSON.stringify(payload);
   users.forEach((u) => {
     if (u.ws.readyState === WebSocket.OPEN && u.ws !== excludeWs) {

@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/AdeelAhmedHashmi/local-chatapp#readme",
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "@types/node": "^25.2.3",
+    "@types/ws": "^8.18.1",
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3"
   }
 }

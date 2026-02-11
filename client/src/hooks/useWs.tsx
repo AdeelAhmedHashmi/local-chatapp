@@ -94,7 +94,9 @@ export function useWS() {
 
     ws.addEventListener('open', () => {
       setConnected(true)
-      const name = `user_${Math.floor(Math.random() * 2000)}`
+      //const name = `user_${Math.floor(Math.random() * 2000)}`
+      const name = prompt("Enter Your Name")
+      setUsername(name)
       ws.send(
         JSON.stringify({
           type: 'setName',
@@ -116,7 +118,6 @@ export function useWS() {
           break
 
         case DataTypes.INFO:
-          console.log('>>', data.user.name)
           setUsername(data.user.name)
           break
 

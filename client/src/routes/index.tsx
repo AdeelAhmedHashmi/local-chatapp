@@ -1,3 +1,5 @@
+"use client"
+
 import { createFileRoute } from '@tanstack/react-router'
 import { useRef, useState } from 'react'
 import type { ChangeEvent, KeyboardEvent } from 'react'
@@ -20,7 +22,9 @@ function App() {
 
   const [input, setInput] = useState<string>('')
   const [open, setOpen] = useState<boolean>(true)
-  const [serverUrl, setServerUrl] = useState('')
+  const host = new URL(window.location.href).hostname;
+  const url = host.replace(/\./g, " ");
+  const [serverUrl, setServerUrl] = useState(url)
 
   const typingTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 

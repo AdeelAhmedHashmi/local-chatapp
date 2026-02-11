@@ -1,20 +1,22 @@
 {
-  "name": "chatapp",
-  "author": {
-    "name": "adeelahmedhashmi",
-    "email": "adeelahmedhashmi.aah@gmail.com",
-    "url": "https://adeelahmedhashmi.netlify.app"
-  },
-  "main": "src/index.ts",
-  "type": "module",
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "tsx src/index.ts",
-    "build": "tsc"
+    "start": "node src/index.js --watch"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
   "devDependencies": {
-    "@types/node": "^25.2.2",
+    "@types/node": "^25.2.3",
     "@types/ws": "^8.18.1",
-    "typescript": "^5.9.3",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2",
     "ws": "^8.19.0"
   }
 }
